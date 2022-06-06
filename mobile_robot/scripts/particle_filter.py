@@ -1,12 +1,4 @@
-'''
-use conda to run code
-install dependencies:
-conda create -n Filters python=3
-conda activate Filters
-conda install -c menpo opencv3
-conda install numpy scipy matplotlib sympy
 
-'''
 import numpy as np
 import scipy as scipy
 from numpy.random import uniform
