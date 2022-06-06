@@ -1,0 +1,24 @@
+#footprint: [[-0.25, -0.25], [-0.25, 0.25], [0.25, 0.25], [0.3,0], [0.25, -0.25]]
+robot_radius: 0.2
+
+map_type: costmap
+
+always_send_full_costmap: true
+
+obstacle_layer:
+  enabled: true
+  obstacle_range: 3.0
+  raytrace_range: 4.0
+  inflation_radius: 0.55
+
+  observation_sources: scan
+  scan: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+inflation_layer:
+  enabled: true
+  cost_scaling_factor: 5.0  # exponential rate at which the obstacle cost drops off (default: 10)
+  inflation_radius: 0.3  # max. distance from an obstacle at which costs are incurred for planning paths.
+
+static_layer:
+  enabled: true
+  map_topic: "/map"

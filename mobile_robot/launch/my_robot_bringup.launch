@@ -1,0 +1,11 @@
+<launch>  
+
+  <node pkg="indoor" type="serial_process.py" name="serial_process" output="screen" />
+  
+  <node pkg="tf" type="static_transform_publisher" name="imu_tf" args="0.04 0 0.14 0 0 0 /base_link /imu_frame 100" />
+
+  <node pkg="tf" type="static_transform_publisher" name="laser_tf" args="0.11 0 0.14 0 0 0 /base_link /laser 100" />
+  
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find indoor)/rviz/teb.rviz" />
+
+</launch>

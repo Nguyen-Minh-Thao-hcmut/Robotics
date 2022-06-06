@@ -1,0 +1,13 @@
+<launch>  
+  <arg name="map_file" default="$(find my_robot)/maps/maze.yaml" />
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" output="screen">
+    <param name="frame_id" value="map" />
+  </node>
+
+  <include file="$(find my_robot)/launch/my_robot_bringup.launch" />
+  <include file="$(find my_robot)/launch/my_robot_localization.launch" />
+  <include file="$(find my_robot)/launch/my_dwa.launch" />
+  <!-- <include file="$(find my_robot)/launch/my_gmapping.launch" /> 
+  <include file="$(find my_robot)/launch/my_amcl.launch"/> -->
+
+</launch>
