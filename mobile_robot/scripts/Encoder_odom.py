@@ -48,7 +48,7 @@ def main():
     ser = uart(port, baudrate)
 
     thread1 = threading.Thread(target=serial_rx, args=ser)
-    thread2 = threading.Thread(target=serial_tx, ard = ser)
+    thread2 = threading.Thread(target=serial_tx, args = ser)
 
     thread1.start()
     thread2.start()
