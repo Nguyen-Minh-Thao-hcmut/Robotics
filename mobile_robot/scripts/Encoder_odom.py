@@ -27,7 +27,7 @@ def serial_rx(connection):
         rxbuff_tmp = connection.connection.read(connection._class_.FRAMESIZE)
         if not rxbuff_tmp == b'':
             connection.rxbuff = rxbuff_tmp
-            if (connection.rxbuff[0]==STX) and (connection.rxbuff[connection._class_.FRAMESIZE-1]):
+            if (connection.rxbuff[0]==STX) and (connection.rxbuff[connection._class_.FRAMESIZE-1]==ETX):
                 connection.unpack_frame()
             if connection.rxdata_avail == 0x01:
                 v_R = connection.rxdata[0] + connection.rxdata[1]/100
